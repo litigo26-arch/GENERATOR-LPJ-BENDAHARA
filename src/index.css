@@ -1,0 +1,309 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+}
+
+.golden-bg-pattern {
+  background-color: #fbf6e9;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(245, 212, 107, 0.28) 0, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(230, 185, 60, 0.22) 0, transparent 50%),
+    radial-gradient(rgba(212, 160, 23, 0.12) 0, transparent 65%),
+    radial-gradient(at 100% 100%, rgba(247, 218, 128, 0.25) 0, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(224, 172, 38, 0.2) 0, transparent 50%);
+}
+
+.font-serif-official {
+  font-family: 'Tinos', 'Times New Roman', Times, serif;
+}
+
+/* Document Scale */
+.doc-scale-compact {
+  font-size: 13px;
+}
+.doc-scale-compact p, .doc-scale-compact li, .doc-scale-compact td {
+  font-size: 13px;
+  line-height: 1.4;
+}
+.doc-scale-compact table {
+  font-size: 12px;
+}
+
+.doc-scale-normal {
+  font-size: 14.5px;
+}
+.doc-scale-normal p, .doc-scale-normal li, .doc-scale-normal td {
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.doc-scale-normal table {
+  font-size: 13px;
+}
+
+.doc-scale-large {
+  font-size: 16px;
+}
+.doc-scale-large p, .doc-scale-large li, .doc-scale-large td {
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+.doc-scale-large table {
+  font-size: 13.5px;
+}
+
+.doc-scale-extra {
+  font-size: 17.5px;
+}
+.doc-scale-extra p, .doc-scale-extra li, .doc-scale-extra td {
+  font-size: 17px;
+  line-height: 1.55;
+}
+.doc-scale-extra table {
+  font-size: 14.5px;
+}
+
+/* Margins */
+.margin-standard .print-sheet {
+  padding: 1.5cm 1.2cm 1.5cm 2cm;
+}
+.margin-tight .print-sheet {
+  padding: 0.8cm;
+}
+.margin-spacious .print-sheet {
+  padding: 2.2cm 1.8cm 2.2cm 2.5cm;
+}
+
+.print-sheet {
+  box-sizing: border-box;
+  background: #ffffff;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Print Overrides */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0 !important;
+  }
+  @page :left { margin: 0 !important; }
+  @page :right { margin: 0 !important; }
+  @page :first { margin: 0 !important; }
+
+  html, body {
+    color: #000 !important;
+    -webkit-print-color-adjust: economy !important;
+    print-color-adjust: economy !important;
+    background: #fff !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11.5pt !important;
+    line-height: 1.4 !important;
+    overflow: visible !important;
+  }
+
+  #root, .min-h-screen, main, #preview-container, .golden-bg-pattern {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: economy !important;
+    print-color-adjust: economy !important;
+    background: #fff !important;
+    border: none !important;
+    gap: 0 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  #lpj-print-container [class*="bg-"] {
+    background: #fff !important;
+  }
+  #lpj-print-container th {
+    background: #f1f5f9 !important;
+  }
+  #lpj-print-container {
+    box-shadow: none !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: economy !important;
+    print-color-adjust: economy !important;
+    background: #fff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 11.5pt !important;
+    line-height: 1.45 !important;
+  }
+
+  .no-print, header, nav, aside {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+
+  .print-sheet {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    clear: both;
+    page-break-after: always !important;
+    break-after: page !important;
+    box-sizing: border-box !important;
+    background: #fff !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 100vh !important;
+    margin: 0 auto !important;
+  }
+
+  .margin-standard .print-sheet {
+    padding: 1.5cm 1.2cm 1.5cm 2cm !important;
+  }
+  .margin-tight .print-sheet {
+    padding: 0.8cm !important;
+  }
+  .margin-spacious .print-sheet {
+    padding: 2.2cm 1.8cm 2.2cm 2.5cm !important;
+  }
+
+  .print-sheet:first-child, #lpj-print-container > .print-sheet:first-of-type {
+    page-break-before: auto !important;
+    break-before: auto !important;
+  }
+  .print-sheet:last-child, #lpj-print-container > .print-sheet:last-of-type {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+
+  .lampiran-foto-sheet {
+    page-break-before: always !important;
+    break-before: page !important;
+    page-break-after: auto !important;
+    break-after: auto !important;
+    clear: both !important;
+    margin-top: 0 !important;
+  }
+
+  .print-cover-frame {
+    box-sizing: border-box !important;
+    border: 3.5pt double #000 !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    height: 100% !important;
+    min-height: 25.5cm !important;
+    max-height: 26.5cm !important;
+    margin: 0 !important;
+    padding: 1.2cm 1cm !important;
+    display: flex !important;
+  }
+
+  /* Font scales in print */
+  .doc-scale-compact p, .doc-scale-compact li, .doc-scale-compact ol, .doc-scale-compact ul {
+    font-size: 9.5pt !important;
+    line-height: 1.35 !important;
+  }
+  .doc-scale-compact table { font-size: 8.5pt !important; }
+  .doc-scale-compact td { padding: 2.5pt 3pt !important; font-size: 8pt !important; }
+  .doc-scale-compact th { padding: 3pt 3.5pt !important; font-size: 8.5pt !important; }
+
+  .doc-scale-normal p, .doc-scale-normal li, .doc-scale-normal ol, .doc-scale-normal ul {
+    font-size: 10.5pt !important;
+    line-height: 1.4 !important;
+  }
+  .doc-scale-normal table { font-size: 9pt !important; }
+  .doc-scale-normal td { padding: 3pt 3.5pt !important; font-size: 8.5pt !important; }
+  .doc-scale-normal th { padding: 3.5pt 4pt !important; font-size: 9pt !important; }
+
+  .doc-scale-large p, .doc-scale-large li, .doc-scale-large ol, .doc-scale-large ul {
+    font-size: 11.5pt !important;
+    line-height: 1.45 !important;
+  }
+  .doc-scale-large table { font-size: 10pt !important; }
+  .doc-scale-large td { padding: 4pt 4.5pt !important; font-size: 9.5pt !important; }
+  .doc-scale-large th { padding: 4.5pt 5pt !important; font-size: 10pt !important; }
+
+  .doc-scale-extra p, .doc-scale-extra li, .doc-scale-extra ol, .doc-scale-extra ul {
+    font-size: 13pt !important;
+    line-height: 1.5 !important;
+  }
+  .doc-scale-extra table { font-size: 11.5pt !important; }
+  .doc-scale-extra td { padding: 4.5pt 5pt !important; font-size: 11pt !important; }
+  .doc-scale-extra th { padding: 5pt 5.5pt !important; font-size: 11.5pt !important; }
+
+  table {
+    page-break-inside: auto;
+    break-inside: auto;
+    border-collapse: collapse !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+    margin-top: 6pt !important;
+    margin-bottom: 8pt !important;
+  }
+  tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  th {
+    color: #000 !important;
+    background-color: #f1f5f9 !important;
+    border: 1px solid #000 !important;
+    font-weight: 700 !important;
+  }
+  td {
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+
+  .no-border-table th, .no-border-table td,
+  table.no-border th, table.no-border td,
+  table.no-border-table th, table.no-border-table td {
+    background-color: transparent !important;
+    border: none !important;
+    padding: 2.5pt 3.5pt !important;
+    font-size: 11.5pt !important;
+  }
+
+  .avoid-break {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .signature-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-top: 16pt !important;
+    font-size: 11.5pt !important;
+  }
+  .signature-block p {
+    font-size: 11.5pt !important;
+    line-height: 1.35 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
