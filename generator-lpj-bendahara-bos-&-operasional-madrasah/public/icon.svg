@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- Background Rounded Squircle -->
+  <rect width="512" height="512" rx="110" fill="url(#bg-grad)"/>
+  
+  <!-- Outer Gold Ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#gold-grad)" stroke-width="8" stroke-dasharray="16 8" opacity="0.8"/>
+  
+  <!-- Document Sheet Body -->
+  <g filter="url(#shadow)">
+    <rect x="140" y="110" width="232" height="292" rx="16" fill="#ffffff"/>
+    
+    <!-- Top Ribbon / Header on Document -->
+    <path d="M 140 126 C 140 117.16 147.16 110 156 110 L 356 110 C 364.84 110 372 117.16 372 126 L 372 165 L 140 165 Z" fill="#047857"/>
+    
+    <!-- Star Emblem on Ribbon -->
+    <polygon points="256,120 262,136 279,136 265,146 270,161 256,151 242,161 247,146 233,136 250,136" fill="url(#gold-grad)"/>
+    
+    <!-- Lines of Text on Document -->
+    <rect x="175" y="195" width="162" height="12" rx="6" fill="#CBD5E1"/>
+    <rect x="175" y="220" width="130" height="10" rx="5" fill="#E2E8F0"/>
+    <rect x="175" y="242" width="145" height="10" rx="5" fill="#E2E8F0"/>
+    <rect x="175" y="264" width="110" height="10" rx="5" fill="#E2E8F0"/>
+    
+    <!-- Stamp Seal Bottom Right -->
+    <circle cx="310" cy="330" r="38" fill="#10B981" fill-opacity="0.15" stroke="#059669" stroke-width="3" stroke-dasharray="6 3"/>
+    <circle cx="310" cy="330" r="30" fill="none" stroke="#059669" stroke-width="2"/>
+    <path d="M 298 330 L 306 338 L 324 320" fill="none" stroke="#047857" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Pen / Signature Vector on Document -->
+    <path d="M 175 330 Q 200 325 220 338 T 260 332" fill="none" stroke="#1E293B" stroke-width="3" stroke-linecap="round"/>
+  </g>
+</svg>
